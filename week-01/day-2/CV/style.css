@@ -1,0 +1,71 @@
+blockquote { 
+    padding: 50px 30px 50px 30px;
+    background-color: darkgrey;
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    
+
+  }
+
+main{
+    margin: 10px 20% 10px 20%;
+    text-align: justify;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header{
+
+}
+
+hgroup {
+    margin-top: 30px;
+}
+
+
+hgroup h3{
+    font-style:italic;
+}
+
+header hgroup h2{
+    font-size: 40px;
+}
+
+header hgroup h1{
+    font-size: 75px;    
+}
+
+#logo-container{
+
+}
+
+hgroup#title{
+    margin: 10px 20% 10px 20%;
+}
+
+article{
+
+}
+
+li{
+    list-style: square
+}
+
+.marks{
+    display: flex;
+    float: left;
+}
+
+.titlefont{
+    font-family: 'Dancing Script', cursive;
+}
+
+.subheaders{
+    text-transform: uppercase;
+    margin: 40px auto 40px auto;
+}
+
+hr.solid {
+    border-top: 3px solid #bbb;
+    margin: 40px 0px 40px 0px;
+}
