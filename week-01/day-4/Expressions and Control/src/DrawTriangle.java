@@ -1,4 +1,4 @@
-import  java.util.Scanner;
+import java.util.Scanner;
 
 public class DrawTriangle {
     public static void main(String[] args) {
@@ -18,7 +18,10 @@ public class DrawTriangle {
 
         int i = 0;
         int j = 0;
-        for (i = 0; i < (scanner.nextInt() + 1); i++) {
+        for (i = 0; i < triangleNumber; i++) {
+            for (j = 0; j < (i + 1); j++) {
+                System.out.print("*");
+            }
             System.out.println();
         }
     }
