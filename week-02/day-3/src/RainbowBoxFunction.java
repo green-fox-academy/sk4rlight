@@ -14,12 +14,16 @@ public class RainbowBoxFunction {
         Color myIndigo = new Color(29, 0, 51);
         Color myViolet = new Color(93, 51, 93);
         Color[] fillColor = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, myIndigo, myViolet};
+        // Color randomColor = new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 
         int i;
-        int amountOfBoxes = 10;
+        int amountOfBoxes = 80;
         int sideSize = WIDTH / amountOfBoxes;
         for (i = amountOfBoxes; i > 0; i--) {
-            drawSquare(sideSize * i, fillColor[(int) (Math.random() * fillColor.length)], graphics);
+            Color randomColor = new Color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+            // drawSquare(sideSize * i, fillColor[(int) (Math.random() * fillColor.length)], graphics);
+            drawSquare(sideSize * i, randomColor, graphics);
+
         }
 
 
@@ -32,12 +36,12 @@ public class RainbowBoxFunction {
                 g.drawLine(W+s, H-s, W-s, H-s );
                 g.drawLine(W-s, H-s, W-s, H+s );
                 g.fillRect(); */
-        g.fillRect(W - s/2, H - s/2, s, s);
+        g.fillRect(W - s / 2, H - s / 2, s, s);
     }
 
     // Don't touch the code below
-    static int WIDTH = 320;
-    static int HEIGHT = 320;
+    static int WIDTH = 800;
+    static int HEIGHT = 800;
     static int W = WIDTH / 2;
     static int H = HEIGHT / 2;
 
