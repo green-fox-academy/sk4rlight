@@ -10,19 +10,20 @@
 public class Fibonacci {
 
     public static void main(String[] args) {
-        int n = 15;
-        fibonacciSequence(n);
+        int n = 4;
+        System.out.println("The element on the n-th index of the Fibonacci sequence is: "+ fibonacciSequence(n));
 
     }
 
     public static int fibonacciSequence(int n) {
-
-        if (n == 0) {
+        int sum;
+        if (n <= 1 && n >= 0) {
             return n;
-        } else if (n == 1) {
-            return fibonacciSequence(n- 1) + n;
-        } else fibonacciSequence(n-1) +
-
+        } else if (n > 1) {
+            return sum = fibonacciSequence(n - 1) + fibonacciSequence(n - 2);
+        }
+        return 0;
     }
+
 
 }
