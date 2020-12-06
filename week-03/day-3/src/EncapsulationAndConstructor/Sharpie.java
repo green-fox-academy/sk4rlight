@@ -10,11 +10,13 @@ public class Sharpie {
         this.width = width;
     }
 
-    public Sharpie(double inkAmount){
+    public Sharpie(double inkAmount) {
+
         this.inkAmount = inkAmount;
     }
 
     public void eat(double dec) {
+
         inkAmount = inkAmount - dec;
     }
 

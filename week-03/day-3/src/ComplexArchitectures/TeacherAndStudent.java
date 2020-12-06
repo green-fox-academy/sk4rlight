@@ -5,9 +5,11 @@ public class TeacherAndStudent {
         Student student = new Student();
         Teacher teacher = new Teacher();
 
-        student.question(teacher.answer());
-        teacher.answer(student.question());
+        student.learn();
+        teacher.answer();
 
+        student.question(teacher);
+        teacher.teach(student);
 
 
     }

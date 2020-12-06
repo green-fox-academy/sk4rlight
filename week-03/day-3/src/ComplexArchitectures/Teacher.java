@@ -2,18 +2,13 @@ package ComplexArchitectures;
 
 public class Teacher {
 
-    String text = "...is answering a question...";
-
-    public void teach() {
-        System.out.println(this.text);
+    public void answer(){
+        System.out.println("The teacher is answering a question...");
     }
 
-    public Teacher() {
-
+    public void teach(Student std){
+        std.learn();
     }
 
-    public Teacher answer(Student method){
-        System.out.println("text " + method);
 
-    }
 }

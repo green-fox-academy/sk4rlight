@@ -2,19 +2,12 @@ package ComplexArchitectures;
 
 public class Student {
 
-    String text = "...learning something new...";
-
-    public void learn(String text) {
-        System.out.println(this.text);
+    public void learn(){
+        System.out.println("The student is learning something new...");
     }
 
-    public Student() {
-
-    }
-
-    public Student question(Teacher method) {
-
-        return s;
+    public void question(Teacher tch){
+        tch.answer();
     }
 
 

@@ -26,7 +26,7 @@ public class SharpieSet {
         listOfSharpies.add(sharpie);
     }
 
-    public int countUsable(){
+   /* public int countUsable(){
         int number = 0;
         for (Sharpie sharpie : this.listOfSharpies) {
             if (sharpie.isUsable() == true) {
@@ -46,6 +46,8 @@ public class SharpieSet {
         }
     }
 
+    */
+
     public static void main(String[] args) {
 
 
@@ -60,8 +62,8 @@ public class SharpieSet {
         sharpieSet.add(sharpieSet.sharpieSix);
         sharpieSet.add(sharpieSet.sharpieSeven);
 
-        System.out.println(sharpieSet.countUsable());
-        sharpieSet.removeTrash();
+    //    System.out.println(sharpieSet.countUsable());
+    //    sharpieSet.removeTrash();
         System.out.println(sharpieSet);
     }
 }

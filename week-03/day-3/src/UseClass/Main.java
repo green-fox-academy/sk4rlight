@@ -17,16 +17,15 @@ public class Main {
 
         // Which pokemon should Ash use?
         List<String> pokemonToUse = new ArrayList<>();
-        for (Pokemon choosePokemon : pokemonOfAsh){
+        for (Pokemon choosePokemon : pokemonOfAsh) {
             if (choosePokemon.isEffectiveAgainst(wildPokemon) == true) {
                 pokemonToUse.add(choosePokemon.name);
-            } else {
-                continue;
+                //    choosePokemon.isEffectiveAgainst(wildPokemon); == fenti true feltetellel, hisz boolean
             }
 
         }
 
-        System.out.print("I choose you, " + pokemonToUse.get((int)(Math.random()*pokemonToUse.size())));
+        System.out.print("I choose you, " + pokemonToUse.get((int) (Math.random() * pokemonToUse.size())));
     }
 
     private static List<Pokemon> initializePokemons() {

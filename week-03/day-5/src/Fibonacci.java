@@ -10,7 +10,7 @@
 public class Fibonacci {
 
     public static void main(String[] args) {
-        int n = 4;
+        int n = 7;
         System.out.println("The element on the n-th index of the Fibonacci sequence is: "+ fibonacciSequence(n));
 
     }
