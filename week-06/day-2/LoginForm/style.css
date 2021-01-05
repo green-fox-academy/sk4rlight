@@ -1,0 +1,55 @@
+body{
+    background-color: #e0e0d1;
+    margin: 5% 35% 5% 35%; 
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:500;
+}
+
+table {
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    padding: 10% 15% 15% 10%;
+}
+
+th{
+    padding-bottom: 5%;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+td{
+    font-size: 12px;
+    padding: 0 0 10px 0;
+}
+
+input{
+    width: 100%;
+    height: 35px;
+}
+
+input:focus{
+    outline:none;
+    border: 1px solid green;
+    box-shadow: 0 0 5px;
+}
+
+button{
+    background-color: #1f1f14;
+    color: #e0e0d1;
+    width: 120px;
+    height: 40px;
+    border-radius: 30px;
+}
+
+#password{
+    background: url("passwordeye.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: 95%;
+}
+
+.buttonrow{
+
+}
