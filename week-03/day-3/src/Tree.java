@@ -1,8 +1,6 @@
 public class Tree {
     public static void main(String[] args) {
-
-
-
+        
     }
         int age = 100;
         String type = "pine";

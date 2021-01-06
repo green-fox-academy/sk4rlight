@@ -9,7 +9,7 @@ public class AnagramTest {
     Anagram anagram;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         anagram = new Anagram();
     }
 
