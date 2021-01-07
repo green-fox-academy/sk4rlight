@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Thymeleaf Exercise #</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
+</head>
+<body>
+<h1>Bank of Simba</h1>
+<h2>Nants ingonyama bagithi baba!!!</h2>
+
+<p>Bank accounts:</p>
+
+<table>
+    <tr th:each="bankaccount: ${bankaccountlist}">
+
+        <td th:text="${bankaccountStat.index+1}"></td>
+        <td th:text="${bankaccount.isKing}"></td>
+        <td th:text="'Name: ' + ${bankaccount.name}"></td>
+        <td th:text="'Balance: (' + ${bankaccount.getBalanceFormatted()} + ' ' + ${bankaccount.getCurrency()} + ')'"></td>
+        <td th:text="'Animal type: ' + ${bankaccount.animalType}"></td>
+</table>
+
+</body>
+</html>
