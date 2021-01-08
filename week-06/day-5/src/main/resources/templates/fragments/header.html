@@ -1,0 +1,36 @@
+<div th:fragment="header">
+    <h1>My Shop</h1>
+    <hr>
+    <div class="topnav">
+        <form method="get" action="/only-available">
+            <button type="submit">ONLY AVAILABLE</button>
+        </form>
+        <form method="get" action="/cheapest-first">
+            <button type="submit">CHEAPEST FIRST</button>
+        </form>
+        <form method="get" action="/contains-nike">
+            <button type="submit">CONTAINS NIKE</button>
+        </form>
+        <form method="get" action="/average-stock">
+            <button type="submit">AVERAGE STOCK</button>
+        </form>
+        <form method="get" action="/most-expensive">
+            <button type="submit">MOST EXPENSIVE AVAILABLE</button>
+        </form>
+
+        <br>
+
+        <form method="get" action="/webshop">
+            <button type="submit">Reset filters</button>
+        </form>
+    </div>
+    <label for="search">Search for:</label>
+    <br>
+
+    <input type="search" id="search" name="search" placeholder="...something like nike">
+<form method="post" action="">
+    <button type="submit">Search</button>
+</form>
+
+
+</div>

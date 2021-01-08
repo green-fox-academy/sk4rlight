@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Webshop</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+
+<div th:replace="fragments/header::header"></div>
+
+<div class="listcontainer">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Quantity of stock</th>
+        </tr>
+        <tr th:each="shopitem:${shopItemList}">
+            <td th:text="${shopitem.name}"></td>
+            <td th:text="${shopitem.description}"></td>
+            <td th:text="${shopitem.price}"></td>
+            <td th:text="${shopitem.quantityOfStock}"></td>
+        </tr>
+    </table>
+</div>
+
+
+</body>
+</html>
