@@ -3,10 +3,7 @@ package com.greenfoxacademy.basicwebshop.controllers;
 import com.greenfoxacademy.basicwebshop.models.ShopItem;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -102,9 +99,11 @@ public class MainController {
     }
 
     @PostMapping("/search")
-    public String search(Model model){
-
-        
+    public String search(Model model, @RequestParam (required = false) String searchId){
+        List<ShopItem> foundShopItemList = shopItemList.stream()
+                .filter(x -> x.getName().contains(searchId) || x.getDescription().contains(searchId))
+                .collect(Collectors.toList());
+        model.addAttribute("shopItemList", foundShopItemList);
         return "index";
     }
 
