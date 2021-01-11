@@ -1,9 +1,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <div th:fragment="header">
-    <h1>My Shop</h1>
+    <div class="top-header">
+        <a th:href="@{/webshop}">
+            <h1>My Shop</h1>
+        </a>
+        <a th:href="@{/more-filters}">
+            <h1>More >></h1>
+        </a>
+    </div>
+
     <hr>
-    <div class="topnav">
+
+    <div class="top-nav">
         <form method="get" action="/only-available">
             <button type="submit">ONLY AVAILABLE</button>
         </form>
@@ -19,13 +28,16 @@
         <form method="get" action="/most-expensive">
             <button type="submit">MOST EXPENSIVE AVAILABLE</button>
         </form>
+    </div>
 
         <br>
 
         <form method="get" action="/webshop">
             <button type="submit">Reset filters</button>
         </form>
-    </div>
+
+        <br>
+
     <label for="searchId">Search for:</label>
     <br>
 

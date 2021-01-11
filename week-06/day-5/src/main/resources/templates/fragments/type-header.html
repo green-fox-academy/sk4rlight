@@ -1,0 +1,36 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div th:fragment="type-header">
+
+    <div class="top-header">
+        <a th:href="@{/webshop}">
+            <h1>My Shop</h1>
+        </a>
+        <a th:href="@{/more-filters}">
+            <h1>More >></h1>
+        </a>
+    </div>
+
+    <hr>
+
+    <div class="type-nav">
+
+        <a href="/filtered-by-type/clothesAndShoes" type="submit" name="clothesAndShoes">CLOTHES AND SHOES</a>
+
+        <form method="get" action="/cheapest-first/electronics">
+            <button type="submit" name="electronics">ELECTRONICS</button>
+        </form>
+        <form method="get" action="/contains-nike/beverages-and-snacks">
+            <button type="submit" name="beveragesAndSnacks">BEVERAGES AND SNACKS</button>
+        </form>
+        <form method="get" action="/euro">
+            <button type="submit" name="euro">EURO</button>
+        </form>
+        <form method="get" action="/original-currency">
+            <button type="submit" name="originalCurrency">ORIGINAL CURRENCY</button>
+        </form>
+    </div>
+
+</div>
+
+</html>
