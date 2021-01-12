@@ -1,0 +1,260 @@
+mysql> SELECT * from Rating;
++------+------+-------+------------+
+| rID  | mID  | stars | ratingDate |
++------+------+-------+------------+
+|  201 |  101 |     2 | 2011-01-22 |
+|  201 |  101 |     4 | 2011-01-27 |
+|  202 |  106 |     4 | NULL       |
+|  203 |  103 |     2 | 2011-01-20 |
+|  203 |  108 |     4 | 2011-01-12 |
+|  203 |  108 |     2 | 2011-01-30 |
+|  204 |  101 |     3 | 2011-01-09 |
+|  205 |  103 |     3 | 2011-01-27 |
+|  205 |  104 |     2 | 2011-01-22 |
+|  205 |  108 |     4 | NULL       |
+|  206 |  107 |     3 | 2011-01-15 |
+|  206 |  106 |     5 | 2011-01-19 |
+|  207 |  107 |     5 | 2011-01-20 |
+|  208 |  104 |     3 | 2011-01-02 |
++------+------+-------+------------+
+14 rows in set (0.00 sec)
+
+mysql> Select * from Movie;
++------+-------------------------+------+------------------+
+| mID  | title                   | year | director         |
++------+-------------------------+------+------------------+
+|  101 | Gone with the Wind      | 1939 | Victor Fleming   |
+|  102 | Star Wars               | 1977 | George Lucas     |
+|  103 | The Sound of Music      | 1965 | Robert Wise      |
+|  104 | E.T.                    | 1982 | Steven Spielberg |
+|  105 | Titanic                 | 1997 | James Cameron    |
+|  106 | Snow White              | 1937 | NULL             |
+|  107 | Avatar                  | 2009 | James Cameron    |
+|  108 | Raiders of the Lost Ark | 1981 | Steven Spielberg |
++------+-------------------------+------+------------------+
+8 rows in set (0.00 sec)
+
+mysql> Select * from Reviewer
+    -> ;
++------+------------------+
+| rID  | name             |
++------+------------------+
+|  201 | Sarah Martinez   |
+|  202 | Daniel Lewis     |
+|  203 | Brittany Harris  |
+|  204 | Mike Anderson    |
+|  205 | Chris Jackson    |
+|  206 | Elizabeth Thomas |
+|  207 | James Cameron    |
+|  208 | Ashley White     |
++------+------------------+
+8 rows in set (0.00 sec)
+
+mysql>
+
+//// Excercise 1 ////
+
+////Find the titles of all movies directed by Steven Spielberg.
+////
+////                     title
+////1                     E.T.
+////2  Raiders of the Lost Ark
+
+mysql> SELECT title from Movie
+    -> WHERE director = "Steven Spielberg";
++-------------------------+
+| title                   |
++-------------------------+
+| E.T.                    |
+| Raiders of the Lost Ark |
++-------------------------+
+2 rows in set (0.00 sec)
+
+//// Excercise 2 ////
+
+//// Find all years that have a movie that received a rating of 4 or 5, and sort them in increasing order.
+
+  year
+1 1937
+2 1939
+3 1981
+4 2009
+////
+
+mysql> SELECT year from Movie inner join Rating on movie.mid = rating.mid
+    -> where stars >= 4 AND ratingDate is not null
+    -> order by year ASC;
++------+
+| year |
++------+
+| 1937 |
+| 1939 |
+| 1981 |
+| 2009 |
++------+
+4 rows in set (0.00 sec)
+
+//// Excercise 3 ////
+
+Find the titles of all movies that have no ratings.
+
+      title
+1 Star Wars
+2   Titanic
+
+////
+
+mysql> SELECT * from Movie left join Rating on movie.mid = rating.mid;
++------+-------------------------+------+------------------+------+------+-------+------------+
+| mID  | title                   | year | director         | rID  | mID  | stars | ratingDate |
++------+-------------------------+------+------------------+------+------+-------+------------+
+|  101 | Gone with the Wind      | 1939 | Victor Fleming   |  201 |  101 |     2 | 2011-01-22 |
+|  101 | Gone with the Wind      | 1939 | Victor Fleming   |  201 |  101 |     4 | 2011-01-27 |
+|  101 | Gone with the Wind      | 1939 | Victor Fleming   |  204 |  101 |     3 | 2011-01-09 |
+|  102 | Star Wars               | 1977 | George Lucas     | NULL | NULL |  NULL | NULL       |
+|  103 | The Sound of Music      | 1965 | Robert Wise      |  203 |  103 |     2 | 2011-01-20 |
+|  103 | The Sound of Music      | 1965 | Robert Wise      |  205 |  103 |     3 | 2011-01-27 |
+|  104 | E.T.                    | 1982 | Steven Spielberg |  205 |  104 |     2 | 2011-01-22 |
+|  104 | E.T.                    | 1982 | Steven Spielberg |  208 |  104 |     3 | 2011-01-02 |
+|  105 | Titanic                 | 1997 | James Cameron    | NULL | NULL |  NULL | NULL       |
+|  106 | Snow White              | 1937 | NULL             |  202 |  106 |     4 | NULL       |
+|  106 | Snow White              | 1937 | NULL             |  206 |  106 |     5 | 2011-01-19 |
+|  107 | Avatar                  | 2009 | James Cameron    |  206 |  107 |     3 | 2011-01-15 |
+|  107 | Avatar                  | 2009 | James Cameron    |  207 |  107 |     5 | 2011-01-20 |
+|  108 | Raiders of the Lost Ark | 1981 | Steven Spielberg |  203 |  108 |     4 | 2011-01-12 |
+|  108 | Raiders of the Lost Ark | 1981 | Steven Spielberg |  203 |  108 |     2 | 2011-01-30 |
+|  108 | Raiders of the Lost Ark | 1981 | Steven Spielberg |  205 |  108 |     4 | NULL       |
++------+-------------------------+------+------------------+------+------+-------+------------+
+16 rows in set (0.00 sec)
+
+mysql> SELECT title from Movie left join Rating on movie.mid = rating.mid
+    -> WHERE stars is NULL;
++-----------+
+| title     |
++-----------+
+| Star Wars |
+| Titanic   |
++-----------+
+2 rows in set (0.00 sec)
+
+/// Excercise 4 ///
+
+Some reviewers didn’t provide a date with their rating. Find the names of all reviewers who have ratings with a NULL value for the date.
+
+           name
+1  Daniel Lewis
+2 Chris Jackson
+
+//////
+
+mysql> SELECT name from Reviewer inner join Rating on rating.rid = reviewer.rid
+    -> where ratingdate is null;
++---------------+
+| name          |
++---------------+
+| Daniel Lewis  |
+| Chris Jackson |
++---------------+
+2 rows in set (0.00 sec)
+
+///// Excercise 5 /////
+
+Write a query to return the ratings data in a more readable format: 
+reviewer name, movie title, stars, and ratingDate. 
+Also, sort the data, first by reviewer name, then by movie title, 
+and lastly by number of stars.
+
+                name                   title stars ratingdate
+ 1      Ashley White                    E.T.     3 2011-01-02
+ 2   Brittany Harris Raiders of the Lost Ark     2 2011-01-30
+ 3   Brittany Harris Raiders of the Lost Ark     4 2011-01-12
+ 4   Brittany Harris      The Sound of Music     2 2011-01-20
+ 5     Chris Jackson                    E.T.     2 2011-01-22
+ 6     Chris Jackson Raiders of the Lost Ark     4       <NA>
+ 7     Chris Jackson      The Sound of Music     3 2011-01-27
+ 8      Daniel Lewis              Snow White     4       <NA>
+ 9  Elizabeth Thomas                  Avatar     3 2011-01-15
+ 10 Elizabeth Thomas              Snow White     5 2011-01-19
+ 11    James Cameron                  Avatar     5 2011-01-20
+ 12    Mike Anderson      Gone with the Wind     3 2011-01-09
+ 13   Sarah Martinez      Gone with the Wind     2 2011-01-22
+ 14   Sarah Martinez      Gone with the Wind     4 2011-01-27
+ 
+ ///////
+ 
+ mysql> SELECT name, title, stars, ratingDate from Movie
+    -> inner join Rating on rating.mid = movie.mid
+    -> inner join Reviewer on reviewer.rid = rating.rid
+    -> order by name ASC, title ASC, stars ASC;
++------------------+-------------------------+-------+------------+
+| name             | title                   | stars | ratingDate |
++------------------+-------------------------+-------+------------+
+| Ashley White     | E.T.                    |     3 | 2011-01-02 |
+| Brittany Harris  | Raiders of the Lost Ark |     2 | 2011-01-30 |
+| Brittany Harris  | Raiders of the Lost Ark |     4 | 2011-01-12 |
+| Brittany Harris  | The Sound of Music      |     2 | 2011-01-20 |
+| Chris Jackson    | E.T.                    |     2 | 2011-01-22 |
+| Chris Jackson    | Raiders of the Lost Ark |     4 | NULL       |
+| Chris Jackson    | The Sound of Music      |     3 | 2011-01-27 |
+| Daniel Lewis     | Snow White              |     4 | NULL       |
+| Elizabeth Thomas | Avatar                  |     3 | 2011-01-15 |
+| Elizabeth Thomas | Snow White              |     5 | 2011-01-19 |
+| James Cameron    | Avatar                  |     5 | 2011-01-20 |
+| Mike Anderson    | Gone with the Wind      |     3 | 2011-01-09 |
+| Sarah Martinez   | Gone with the Wind      |     2 | 2011-01-22 |
+| Sarah Martinez   | Gone with the Wind      |     4 | 2011-01-27 |
++------------------+-------------------------+-------+------------+
+14 rows in set (0.01 sec)
+
+//// Excercise 6 ////
+
+For all cases where the same reviewer rated the same movie twice 
+and gave it a higher rating the second time, return the reviewer’s name 
+and the title of the movie.
+
+            name              title
+1 Sarah Martinez Gone with the Wind
+
+///////////////////////
+
+//// Exercise 7 (Optional) ////
+For each movie that has at least one rating, find the highest number of stars 
+that movie received. Return the movie title and number of stars. 
+Sort by movie title.
+
+                    title max
+1                  Avatar   5
+2                    E.T.   3
+3      Gone with the Wind   4
+4 Raiders of the Lost Ark   4
+5              Snow White   5
+6      The Sound of Music   3
+
+//////////////////////
+
+//// Exercise 8 (Optional) ////
+For each movie, return the title and the ‘rating spread’, 
+that is, the difference between highest and lowest ratings given to that movie. 
+Sort by rating spread from highest to lowest, then by movie title.
+
+                    title rating_spread
+1                  Avatar             2
+2      Gone with the Wind             2
+3 Raiders of the Lost Ark             2
+4                    E.T.             1
+5              Snow White             1
+6      The Sound of Music             1
+//////////////////////
+
+//// Exercise 9 (Optional) ////
+Find the difference between the average rating of movies released before 1980 
+and the average rating of movies released after 1980. 
+(Make sure to calculate the average rating for each movie, 
+then the average of those averages for movies before 1980 and movies after. 
+Don’t just calculate the overall average rating before and after 1980.)
+
+1 0.05555556
+
+///////////////////////////////
+
+
