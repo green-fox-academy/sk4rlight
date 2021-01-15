@@ -1,0 +1,29 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dungeon Hero Club</title>
+</head>
+<body>
+
+<div th:replace="fragments::header"></div>
+
+<img src="/images/logo.png" alt="logo">
+
+<p th:text="${intro}"></p>
+<p>Currently handled heroes:</p>
+<ul>
+    <li th:each="hero:${heroList}" th:text="${hero.name}"></li>
+</ul>
+
+<h1>Known tricks</h1>
+<!--
+<span th:if="${heroListSize==0}">I don't know any tricks yet. Please teach me some!</span>
+-->
+<!--
+<ul>
+    <li th:each=""></li>
+</ul>
+-->
+</body>
+</html>
