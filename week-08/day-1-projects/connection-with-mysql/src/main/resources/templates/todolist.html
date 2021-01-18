@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo list</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Todos for today //default</h1>
+
+<ul>
+    <li>Start the day</li>
+    <li>Finish H2 workshop1</li>
+    <li>Finish JPA workshop2</li>
+    <li>Create a CRUD project</li>
+</ul>
+
+<h1>Todos for today //mySQL</h1>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Urgent</th>
+        <th>Done</th>
+    </tr>
+
+    <tr th:each="todo:${model}">
+        <td th:text="${todo.id}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.urgent}"></td>
+        <td th:text="${todo.done}"></td>
+    </tr>
+</table>
+
+
+</body>
+</html>
