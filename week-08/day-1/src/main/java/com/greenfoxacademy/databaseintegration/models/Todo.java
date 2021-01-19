@@ -28,4 +28,12 @@ public class Todo {
         setTitle(title);
     }
 
+    public Boolean isDone(){
+        return getDone();
+    }
+
+    public Boolean isUrgent(){
+        return getUrgent();
+    }
+
 }

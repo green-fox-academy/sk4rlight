@@ -9,6 +9,7 @@
 
 <h1>Todos for today //default</h1>
 
+
 <ul>
     <li>Start the day</li>
     <li>Finish H2 workshop1</li>
@@ -17,6 +18,10 @@
 </ul>
 
 <h1>Todos for today //mySQL</h1>
+
+<p>
+    <a href="/todo/add-todo">Add new todo</a>
+</p>
 
 <table>
     <tr>
@@ -31,6 +36,10 @@
         <td th:text="${todo.title}"></td>
         <td th:text="${todo.urgent}"></td>
         <td th:text="${todo.done}"></td>
+        <td>
+            <a th:href="'/todo/delete-todo/' + ${todo.id}">delete</a>
+        </td>
+
     </tr>
 </table>
 
