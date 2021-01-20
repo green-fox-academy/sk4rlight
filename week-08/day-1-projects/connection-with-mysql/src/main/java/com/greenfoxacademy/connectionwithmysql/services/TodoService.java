@@ -11,15 +11,22 @@ public class TodoService {
     TodoRepository todoRepository;
 
     @Autowired
-    public TodoService(TodoRepository todoRepository){
+    public TodoService(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
     }
 
-    public void addTodo(Todo todo){
+    public void addTodo(Todo todo) {
         todoRepository.save(todo);
     }
 
-    public void deleteTodo(Long id){
+    public void deleteTodo(Long id) {
         todoRepository.deleteById(id);
+    }
+
+    public Todo getTodo(Long id) {
+        if (todoRepository.findById(id).isPresent()) {
+            return todoRepository.findById(id).get();
+        }
+        return null;
     }
 }

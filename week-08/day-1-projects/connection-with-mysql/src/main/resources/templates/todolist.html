@@ -39,6 +39,9 @@
         <td>
             <a th:href="'/todo/delete-todo/' + ${todo.id}">delete</a>
         </td>
+        <td>
+            <a th:href="'/todo/' + ${todo.id} + '/edit'">edit</a>
+        </td>
 
     </tr>
 </table>
