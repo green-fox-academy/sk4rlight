@@ -1,7 +1,6 @@
 package com.greenfoxacademy.theredditproject.controller;
 
 import com.greenfoxacademy.theredditproject.model.Post;
-import com.greenfoxacademy.theredditproject.repository.PostRepository;
 import com.greenfoxacademy.theredditproject.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +20,7 @@ public class MainController {
 
     @GetMapping({"", "/", "/home"})
     public String homePage(Model model){
-        model.addAttribute("postList", postService.collectPost());
+        model.addAttribute("postList", postService.sortedPostList());
         return "index";
     }
 
@@ -32,6 +31,7 @@ public class MainController {
 
     @PostMapping("/submit")
     public String submitPost(@ModelAttribute Post post){
+        postService.addPost(post);
         return "redirect:/reddit/home";
     }
 

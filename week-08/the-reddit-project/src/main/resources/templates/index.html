@@ -15,6 +15,7 @@
         <td th:text="${post.score}"></td>
         <td><a th:href="'/reddit/downvote/' + ${post.id}">-</a></td>
         <td><a th:href='${post.url}' th:text="${post.title}"></a></td>
+        <td><a th:text="${post.timestamp}"></a></td>
     </tr>
 </table>
 
