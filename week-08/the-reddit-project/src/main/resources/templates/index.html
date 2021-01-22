@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>The Reddit Clone Homepage</title>
+    <link href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"/>
 </head>
 <body>
-<a href="/reddit/submit">Submit new post</a>
+<div class="navbar">
+    <span href="/reddit/submit">Submit new post</span>
+    <span href="/reddit/register">Register</span>
+</div>
+
 
 <h1>Trending posts</h1>
 
-<table>
-    <tr th:each="post:${postList}">
-        <td><a th:href="'/reddit/upvote/' + ${post.id}">+</a></td>
-        <td th:text="${post.score}"></td>
-        <td><a th:href="'/reddit/downvote/' + ${post.id}">-</a></td>
-        <td><a th:href='${post.url}' th:text="${post.title}"></a></td>
-        <td><a th:text="${post.timestamp}"></a></td>
-    </tr>
-</table>
+<div class="container">
+    <table class="table table-striped">
+        <tbody>
+        <tr th:each="post:${postList}">
+            <td scope="row"><a th:href="'/reddit/upvote/' + ${post.id}">+</a></td>
+            <td scope="row" th:text="${post.score}"></td>
+            <td scope="row"><a th:href="'/reddit/downvote/' + ${post.id}">-</a></td>
+            <td><a th:href='${post.url}' th:text="${post.title}"></a></td>
+            <td><a th:text="${post.timestamp}"></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<script src="/webjars/jquery/3.3.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/4.3.1/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>
