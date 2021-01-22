@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>The Reddit Clone Homepage</title>
+</head>
+<body>
+<a href="/reddit/submit">Submit new post</a>
+
+<h1>Trending posts</h1>
+
+<table>
+    <tr th:each="post:${postList}">
+        <td><a th:href="'/reddit/upvote/' + ${post.id}">+</a></td>
+        <td th:text="${post.score}"></td>
+        <td><a th:href="'/reddit/downvote/' + ${post.id}">-</a></td>
+        <td><a th:href='${post.url}' th:text="${post.title}"></a></td>
+    </tr>
+</table>
+
+</body>
+</html>
