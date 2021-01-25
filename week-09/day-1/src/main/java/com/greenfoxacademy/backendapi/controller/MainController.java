@@ -53,7 +53,7 @@ public class MainController {
             return new ResponseEntity<ErrorDTO>(errorDTO, HttpStatus.BAD_REQUEST);
         } else {
             GreeterDTO greeterDTO = new GreeterDTO();
-            greeterDTO.setWelcome_message("Oh, hi there " + name + ", my dear " + title + "!");
+            greeterDTO.setWelcomeMessage("Oh, hi there " + name + ", my dear " + title + "!");
             return new ResponseEntity<GreeterDTO>(greeterDTO, HttpStatus.OK);
         }
     }
