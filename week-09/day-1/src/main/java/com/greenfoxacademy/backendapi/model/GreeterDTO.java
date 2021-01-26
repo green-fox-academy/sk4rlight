@@ -1,4 +1,4 @@
-package com.greenfoxacademy.backendapi.dto;
+package com.greenfoxacademy.backendapi.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
