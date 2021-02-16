@@ -24,15 +24,15 @@ public class Todo {
     private Boolean urgent = false;
     private Boolean done = false;
 
-    public Todo(String title){
+    public Todo(String title) {
         setTitle(title);
     }
 
-    public Boolean isDone(){
+    public Boolean isDone() {
         return getDone();
     }
 
-    public Boolean isUrgent(){
+    public Boolean isUrgent() {
         return getUrgent();
     }
 

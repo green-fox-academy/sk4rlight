@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface TodoRepository extends CrudRepository<Todo, Long> {
 
     List<Todo> findTodosByDoneFalse();
+
     List<Todo> findTodosByDoneTrue();
 }

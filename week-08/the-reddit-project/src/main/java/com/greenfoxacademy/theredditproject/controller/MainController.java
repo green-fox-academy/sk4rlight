@@ -17,48 +17,52 @@ public class MainController {
     UserService userService;
 
     @Autowired
-    public MainController(PostService postService, UserService userService){
+    public MainController(PostService postService, UserService userService) {
         this.postService = postService;
         this.userService = userService;
     }
 
     @GetMapping({"", "/", "/home"})
-    public String homePage(Model model){
+    public String homePage(Model model) {
         model.addAttribute("postList", postService.sortedPostList());
         return "index";
     }
 
     @GetMapping("/submit")
-    public String submitGet(){
+    public String submitGet() {
         return "submit";
     }
 
     @PostMapping("/submit")
-    public String submitPost(@ModelAttribute Post post){
-        postService.addPost(post);
+    public String submitPost(@ModelAttribute Post post) {
+        if (post.getTitle() != null && post.getUrl() != null) {
+            postService.addPost(post);
+        }
         return "redirect:/reddit/home";
     }
 
     @GetMapping("/upvote/{id}")
-    public String upVote(@ModelAttribute Post post, @PathVariable Long id){
+    public String upVote(@ModelAttribute Post post, @PathVariable Long id) {
         postService.increaseScoreAndSave(postService.getPost(id));
         return "redirect:/reddit/home";
     }
 
     @GetMapping("/downvote/{id}")
-    public String downVote(@ModelAttribute Post post, @PathVariable Long id){
+    public String downVote(@ModelAttribute Post post, @PathVariable Long id) {
         postService.decreaseScoreAndSave(postService.getPost(id));
         return "redirect:/reddit/home";
     }
 
     @GetMapping("/register")
-    public String registerGet(){
+    public String registerGet() {
         return "register";
     }
 
     @PostMapping("/register")
-    public String registerPost(@ModelAttribute User user){
-        userService.addNewUser(user);
+    public String registerPost(@ModelAttribute User user) {
+        if (user.getUserName() != null && user.getPassWord() != null) {
+            userService.addNewUser(user);
+        }
         return "redirect:/reddit/home";
     }
 }

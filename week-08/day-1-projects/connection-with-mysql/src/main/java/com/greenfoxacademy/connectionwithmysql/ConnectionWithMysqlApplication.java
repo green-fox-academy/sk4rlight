@@ -12,7 +12,7 @@ public class ConnectionWithMysqlApplication implements CommandLineRunner {
     TodoRepository todoRepository;
 
     @Autowired
-    public ConnectionWithMysqlApplication(TodoRepository todoRepository){
+    public ConnectionWithMysqlApplication(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
     }
 
@@ -21,12 +21,12 @@ public class ConnectionWithMysqlApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args){
-    //    todoRepository.save(new Todo("TODO1", false, true));
-    //    todoRepository.save(new Todo("TODO2", true, false));
-    //    todoRepository.save(new Todo("TODO3", false, false));
-    //    todoRepository.save(new Todo("TODO4", true, false));
-    //    todoRepository.save(new Todo("TODO5", true, true));
-    //    todoRepository.save(new Todo("TODO6", false, true));
+    public void run(String... args) {
+        //    todoRepository.save(new Todo("TODO1", false, true));
+        //    todoRepository.save(new Todo("TODO2", true, false));
+        //    todoRepository.save(new Todo("TODO3", false, false));
+        //    todoRepository.save(new Todo("TODO4", true, false));
+        //    todoRepository.save(new Todo("TODO5", true, true));
+        //    todoRepository.save(new Todo("TODO6", false, true));
     }
 }

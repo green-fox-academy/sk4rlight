@@ -23,12 +23,12 @@ public class TodoController {
     }
 
     @GetMapping("/")
-    public String listIsDone(@RequestParam (required = false) Boolean isActive, Model model) {
+    public String listIsDone(@RequestParam(required = false) Boolean isActive, Model model) {
         List<Todo> todoList;
 
         if (isActive == null) {
             todoList = (List<Todo>) todoRepository.findAll();
-        } else if (!isActive){
+        } else if (!isActive) {
             todoList = todoRepository.findTodosByDoneTrue();
         } else {
             todoList = todoRepository.findTodosByDoneFalse();
