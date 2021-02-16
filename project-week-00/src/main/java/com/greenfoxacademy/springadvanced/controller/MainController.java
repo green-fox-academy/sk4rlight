@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class MainController {
@@ -14,9 +15,9 @@ public class MainController {
     @Autowired
     MovieService movieService;
 
-   @GetMapping("/movie")
-   public ResponseEntity<Movie> getMovie(){
-        Movie movie = movieService.getMovieById(5);
+   @GetMapping("/movie/{id}")
+   public ResponseEntity<Movie> getMovie(@PathVariable Integer id){
+        Movie movie = movieService.getMovieById(id);
         return new ResponseEntity<>(movie, HttpStatus.OK);
    }
 }
