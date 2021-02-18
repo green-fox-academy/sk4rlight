@@ -2,30 +2,21 @@ package com.greenfoxacademy.springadvanced.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import lombok.AllArgsConstructor;
-
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.*;
 import java.util.List;
 
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
-public class Movie {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @SerializedName("id")
-    @Expose
-    private Integer id;
+public class ResultDTO {
 
     @SerializedName("genre_ids")
     @Expose
     private List<Genre> genreIds;
+    @SerializedName("id")
+    @Expose
+    private Integer id;
     @SerializedName("original_language")
     @Expose
     private String originalLanguage;
