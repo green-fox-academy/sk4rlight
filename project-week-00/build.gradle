@@ -19,6 +19,7 @@ repositories {
 }
 
 dependencies {
+// JPA
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -30,14 +31,17 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+// Spring Security
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'org.springframework.security:spring-security-test'
-
+// JWT
+    compile 'io.jsonwebtoken:jjwt:0.9.1'
+    compile 'javax.xml.bind:jaxb-api:2.3.0'
+// Retrofit, OkHttp
     implementation group: 'com.squareup.retrofit2', name: 'retrofit', version: '2.9.0'
     implementation group: 'com.squareup.retrofit2', name: 'converter-gson', version: '2.9.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-
+// ModelMapper
     compile 'org.modelmapper:modelmapper:2.3.0'
 
     test {
